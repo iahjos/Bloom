@@ -79,3 +79,47 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
   
+  document.addEventListener("DOMContentLoaded", () => {
+    // Hamburger toggle (already in your script, keep it)
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+  
+    if (hamburger) {
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      });
+    }
+  
+    // === Package Cards Animation (only on pages with packages) ===
+    const packageCards = document.querySelectorAll(".package-card");
+  
+    if (packageCards.length > 0) {
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate-in");
+              obs.unobserve(entry.target); // animate once
+            }
+          });
+        },
+        { threshold: 0.2 } // trigger when 20% visible
+      );
+  
+      packageCards.forEach(card => observer.observe(card));
+    }
+  });
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+  
+    if (hamburger && navLinks) {
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      });
+    }
+  });
+  

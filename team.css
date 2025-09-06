@@ -74,31 +74,67 @@
   }
   
   /* Mobile nav dropdown */
-  @media (max-width: 768px) {
-    .hamburger { display: flex; z-index: 1001; }
-    .nav-links {
-      display: none;
-      position: absolute;
-      top: 100%; left: 0; right: 0;
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border-radius: 0 0 20px 20px;
-      flex-direction: column;
-      align-items: center;
-      padding: 1rem 0;
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: max-height 0.6s ease, opacity 0.6s ease;
-    }
-    .nav-links.active {
-      display: flex;
-      max-height: 400px;
-      opacity: 1;
-    }
-    .nav-links ul { flex-direction: column; gap: 1rem; }
+/* Mobile nav dropdown */
+@media (max-width: 768px) {
+  .hamburger { display: flex; z-index: 1001; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%); /* center horizontally */
+    width: 90%;                  /* narrower box for centering */
+
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 0 0 20px 20px;
+
+    flex-direction: column;
+    align-items: center;
+    padding: 1.2rem 0;
+
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.6s ease, opacity 0.6s ease;
   }
+
+  .nav-links.active {
+    display: flex;
+    max-height: 400px;
+    opacity: 1;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;  /* centers the items */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .nav-links ul li {
+    list-style: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+    color: #333; /* darker text over light dropdown */
+    text-decoration: none;
+    display: block;
+    width: 100%;
+  }
+
+  .nav-links a:hover,
+  .nav-links .active {
+    color: #E6154D;
+  }
+}
   
   /* Hamburger → X */
   .hamburger.active span:nth-child(1) { transform: rotate(45deg); position: relative; top: 8px; }
@@ -167,16 +203,29 @@
   }
   
   .team-card h2 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    font-weight: 100;
     color: #E6154D;
     margin-bottom: 0.3rem;
   }
   
   .team-card p {
     font-size: 1rem;
-    color: #555;
+    color: black; 
   }
   
+  .team-card {
+    position: relative; /* needed for absolute positioning */
+  }
+  
+  .team-card i {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    color: #E6154D; 
+  }  
+
   /* CTA inside team section */
   .cta-team {
     margin-top: auto;

@@ -50,5 +50,27 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+  
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: this.name.value,
+          email: this.email.value,
+          message: this.message.value,
+        }),
+      });
+  
+      if (res.ok) {
+        alert("Message sent!");
+        this.reset();
+      } else {
+        alert("Something went wrong. Try again.");
+      }
+    });
+  </script>  
 </body>
 </html>
