@@ -125,7 +125,7 @@
   }
   
   .contact-form {
-    background: rgba(255, 255, 255, 0.55); /* stronger glass */
+    background: rgba(80, 80, 80, 0.313); /* stronger glass */
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     padding: 2.5rem;
@@ -159,13 +159,13 @@
   }
   .contact-form input:focus,
   .contact-form textarea:focus {
-    border-color: #E6154D;
+    border-color: #97BD00;
   }
   
   /* Placeholder text black */
   .contact-form input::placeholder,
   .contact-form textarea::placeholder {
-    color: black;
+    color: #E6154D;
   }
   
   .btn-submit {
