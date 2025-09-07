@@ -77,10 +77,10 @@ body {
 
 /* Shared glassmorphism effect */
 .glass-effect {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.35);   /* darker semi-transparent black */
+  backdrop-filter: blur(25px);       /* stronger blur */
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
 }
 
@@ -99,10 +99,10 @@ body {
     transform: translateX(-50%);  /* center horizontally */
     width: 90%;                   /* make it narrower for centered look */
 
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(0, 0, 0, 0.35);   /* darker semi-transparent black */
+    backdrop-filter: blur(25px);       /* stronger blur */
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 20px;
 
     flex-direction: column;
@@ -177,6 +177,11 @@ body {
   height: 100%;
   object-fit: cover;
   z-index: -2;
+
+  /* Keep video sharp */
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  transform: translateZ(0); /* forces GPU acceleration */
 }
 
 /* Optional overlay for readability */
@@ -193,14 +198,13 @@ body {
 
 /* Glassmorphism hero box */
 .glass {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.35);   /* darker semi-transparent black */
+  backdrop-filter: blur(25px);       /* stronger blur */
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
-
-  padding: 4rem 5rem;       /* back to original desktop size */
-  max-width: 900px;         /* wider for laptop view */
+  padding: 4rem 5rem;
+  max-width: 900px;
   text-align: center;
   margin: auto;
 }
