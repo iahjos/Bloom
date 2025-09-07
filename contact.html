@@ -35,11 +35,11 @@
     
     <form id="contactForm" class="contact-form">
       <div class="form-row">
-        <input type="text" placeholder="First Name" required>
-        <input type="text" placeholder="Last Name" required>
+        <input type="text" name="firstName" placeholder="First Name" required>
+        <input type="text" name="lastName" placeholder="Last Name" required>
       </div>
-      <input type="email" placeholder="Email Address" required>
-      <textarea placeholder="Your Message" rows="6" required></textarea>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
       <button type="submit" class="btn-submit">Send Message</button>
     </form>
   </section>
@@ -50,6 +50,7 @@
   </footer>
 
   <script src="script.js"></script>
+  
   <script>
     document.getElementById("contactForm").addEventListener("submit", async function(e) {
       e.preventDefault();
@@ -58,17 +59,17 @@
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: this.name.value,
+          name: this.firstName.value + " " + this.lastName.value,
           email: this.email.value,
           message: this.message.value,
         }),
       });
   
       if (res.ok) {
-        alert("Message sent!");
-        this.reset();
+        alert("✅ Your message was sent!");
+        window.location.reload(); // reload page after message is sent
       } else {
-        alert("Something went wrong. Try again.");
+        alert("❌ Something went wrong. Please try again.");
       }
     });
   </script>  
